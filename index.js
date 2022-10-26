@@ -1,12 +1,22 @@
 let id = 0
 const tarefa = (id, novaTarefa) => `<div>
-<p id='${id}>${novaTarefa}</p>
-<input type='checkbox' />
+<p id='${id}'>${novaTarefa}</p>
+<label for='marcarTarefa'></label>
+<input type='checkbox' onchange="marcarTarefa(${id}")/>
 <button onclick='removerTarefa(${id})'>Remover</button>
 </div>`
 
-function exibirLista(){ 
-    console.log('called')
+const marcarTarefa = (id) => {
+    const strike = document.getElementById(`strike${id}`)
+    if(strike){
+        document.getElementById(id).innerHTML = strike.innerHTML
+    }else{
+        const tarefaConcluida = document.getElementById(id).innerHTML
+        document.getElementById(id).innerHTML = `<strike id='strike${id}'>${tarefaConcluida}</strike>`
+    }
+}
+
+function exibirLista() { 
     const tarefas = JSON.parse(localStorage.getItem('lista-tarefas'))
     if (tarefas){
         tarefas.forEach(tarefaListada => {
@@ -20,27 +30,30 @@ const validarTarefa = (novaTarefa) => {
     let tarefaExistente = false
     const listaTarefas = JSON.parse(localStorage.getItem('lista-tarefas'))
 
-    listaTarefas.map(tarefa => {
-        if(tarefa === novaTarefa){
-            tarefaExistente = true
-            alert ('Tarefa já existente')
+    if(listaTarefas){
+        listaTarefas.map(tarefa => {
+            if(tarefa === novaTarefa) {
+                tarefaExistente = true
+                alert ('Tarefa já existente')
         }
-    })
+        })
     
-    return tarefaExistente
+        return tarefaExistente
+    }
 }
-function adicionarTarefa(){
+
+function adicionarTarefa() {
     id++
     const novaTarefa = document.getElementById('nome-tarefa').value
     const listaTarefas = localStorage.getItem('lista-tarefas')
-    if(validarTarefa(novaTarefa)){
+    if(validarTarefa(novaTarefa)) {
         return
 
     }
 
     document.querySelector('#lista-tarefas').innerHTML += tarefa(id, novaTarefa)
 
-    if (listaTarefas){
+    if (listaTarefas) {
         const novaLista = JSON.parse(listaTarefas)
         novaLista.push(novaTarefa)
         localStorage.setItem('lista-tarefas', JSON.stringify(novaLista))
