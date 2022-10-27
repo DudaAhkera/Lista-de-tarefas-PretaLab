@@ -5,16 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Lista de Tarefas</h1>
-    <h2>Lista de Tarefas da Zulenice</h2>
-    <label for="nome-tarefa"> </label>
-    <input type="text" id="nome-tarefa" />
-    <button onclick="adicionarTarefa()">
-        Criar Tarefa 
-    </button>
-    <div id="lista-tarefas"> </div>
+    <div class="corpo">
+        
+        <div class="topo">
+            <h2>Minha Lista de Tarefas Diárias</h2>
+            <label for="nome-tarefa"> </label>
+            <input type="text" id="nome-tarefa" placeholder="Adicione sua tarefa"/>
+            <button onclick="adicionarTarefa()" class="botão">
+                Criar Tarefa 
+            </button>
+        </div>
+
+        <div id="lista-tarefas" class="lista"> </div>
+        
+    </div>
     <script src="./index.js"></script> 
 </body>
 </html>

@@ -2,9 +2,11 @@ let id = 0
 const tarefa = (id, novaTarefa) => `<div>
 <p id='${id}'>${novaTarefa}</p>
 <label for='marcarTarefa'></label>
-<input type='checkbox' onchange="marcarTarefa(${id}")/>
-<button onclick='removerTarefa(${id})'>Remover</button>
+<input type='checkbox' onchange="marcarTarefa(${id})"/>
+<button onclick='removerTarefa(${id})' class='botãoRemove'>Remover</button>
 </div>`
+
+
 
 const marcarTarefa = (id) => {
     const strike = document.getElementById(`strike${id}`)
@@ -50,7 +52,7 @@ function adicionarTarefa() {
         return
 
     }
-
+    
     document.querySelector('#lista-tarefas').innerHTML += tarefa(id, novaTarefa)
 
     if (listaTarefas) {
@@ -60,7 +62,6 @@ function adicionarTarefa() {
     } else{
         localStorage.setItem('lista-tarefas', JSON.stringify([novaTarefa]))
     }
-
 }
 
 const removerTarefa = (id) => {
