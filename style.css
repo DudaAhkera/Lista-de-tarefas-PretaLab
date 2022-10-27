@@ -1,10 +1,7 @@
 body {
-    background-color: black;
-    color: aliceblue;
+    background-color: gray;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    margin: 0; 
-
 }
 
 .corpo {
@@ -23,7 +20,7 @@ body {
 
 .topo {
     display: block;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 35px;
     background: #191818;
     padding: 10px;
@@ -31,15 +28,13 @@ body {
 
 }
 
-.topo h2 {
-    justify-content: s
-}
-
 .topo input {
     width: 300px;
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #191818;
+    outline: none;
+    justify-content: space-around;
 }
 
 .botão {
@@ -51,16 +46,27 @@ body {
 .lista {
     margin-top: 50px;
     margin-bottom: 50px;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px;
     background: #191818;
     border-radius: 12px;
+
 }
+
 
 .botãoRemove {
     border-radius: 12px;
     padding: 5px;
     border: 1px solid #191818;
+    justify-content: space-around;
+    float: right;
 }
+
+
+
+
+
+
+
 
 

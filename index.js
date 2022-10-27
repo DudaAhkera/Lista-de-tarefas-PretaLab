@@ -2,7 +2,7 @@ let id = 0
 const tarefa = (id, novaTarefa) => `<div>
 <p id='${id}'>${novaTarefa}</p>
 <label for='marcarTarefa'></label>
-<input type='checkbox' onchange="marcarTarefa(${id})"/>
+<input type='checkbox' onchange="marcarTarefa(${id})" class="check"/>
 <button onclick='removerTarefa(${id})' class='botãoRemove'>Remover</button>
 </div>`
 
@@ -72,6 +72,7 @@ const removerTarefa = (id) => {
     document.querySelector('#lista-tarefas').innerHTML = ''
     exibirLista()
 }
+
 
 exibirLista()
 
